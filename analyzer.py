@@ -19,7 +19,7 @@ model = genai.GenerativeModel('gemini-2.5-flash')
 
 
 # Calls Gemini to categorize content based Strictly on the allowed_keys fed in config
-def analyze_file_with_gemini(file_path, content, allowed_keys):
+def analyze_file_with_AI(file_path, content, allowed_keys):
 
     # Determine file type
     file_ext = os.path.splitext(file_path)[1].lower()
@@ -107,11 +107,9 @@ def analyze_file_with_gemini(file_path, content, allowed_keys):
             return []
 
 
+#mapping keys to values
+def analysis(target_folder, allowed_keys):
 
-def run_analysis_pipeline(target_folder, allowed_keys):
-    """
-    Phase 1: The 'MAP' Phase (Scanning & tagging individual files)
-    """
     file_map = load_file_map()
     files_processed = 0
 
@@ -131,7 +129,7 @@ def run_analysis_pipeline(target_folder, allowed_keys):
                 with open(file_path, 'rb') as f:
                     content = f.read()
 
-                keys = analyze_file_with_gemini(file_path, content, allowed_keys)
+                keys = analyze_file_with_AI(file_path, content, allowed_keys)
                 # Sort keys immediately for consistency
                 keys.sort()
 
@@ -154,12 +152,9 @@ def run_analysis_pipeline(target_folder, allowed_keys):
 
 
 
-
-def run_reduce_pipeline():
-    """
-    Phase 2: The 'REDUCE' Phase (Grouping by key)
-    Transforms file-to-key.json INTO key-to-file.json
-    """
+#Reduce (Grouping by key)
+def reduce():
+    #Transforms file-to-key.json INTO key-to-file.json
     file_map = load_file_map()
     key_reduce = {}
 
@@ -168,10 +163,12 @@ def run_reduce_pipeline():
 
         # For every key this file has, add the file path to that key's list
         for key in current_keys:
+            #if the 
             if key not in key_reduce:
                 key_reduce[key] = []
+            
             key_reduce[key].append(file_path)
 
     # Save the REDUCED data (key-to-file.json)
     save_key_reduce(key_reduce)
-    print("Reduce phase complete.")
+    print("Reduce complete.")

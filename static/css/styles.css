@@ -71,6 +71,7 @@ button:disabled {
   margin-right: 5px;
   color: #bbb;
 }
+
 /* Highlight the key that matches the current group header */
 .key-pill.active {
   background: var(--accent);

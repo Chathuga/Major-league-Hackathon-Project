@@ -1,5 +1,27 @@
 {
-  "/Users/makho/Desktop/Major-league-Hackathon-Project/input/math024-week9-3.2 copy.pdf": {
+<<<<<<< HEAD
+  "C:\\Users\\thene\\Desktop\\MLH\\input\\HMWK 06.pdf": {
+    "keys": [
+      "diagrams",
+      "math",
+      "physics",
+      "statics and dynamics"
+    ],
+    "mtime": 1760782995.7220564,
+    "filename": "HMWK 06.pdf"
+  },
+  "C:\\Users\\thene\\Desktop\\MLH\\input\\LUdecomp.pdf": {
+    "keys": [
+      "homework answers",
+      "math",
+      "programming"
+    ],
+    "mtime": 1758837383.2496955,
+    "filename": "LUdecomp.pdf"
+  },
+  "C:\\Users\\thene\\Desktop\\MLH\\input\\Scanned_20251001-1610.pdf": {
+=======
+  "/Users/amankalkat/Desktop/other_mlh/input/Dockerfile-2025": {
     "keys": [
       "homework problems",
       "math"
@@ -30,13 +52,52 @@
     "mtime": 1761175357.610978,
     "filename": "math024-week10-3.2part1 copy.pdf"
   },
-  "/Users/makho/Desktop/Major-league-Hackathon-Project/input/p1 copy.txt": {
+  "/Users/amankalkat/Desktop/other_mlh/input/Math 32 Hw 1.pdf": {
+>>>>>>> 58ee6046b8e1a70d7262b03952502e619f0de73e
+    "keys": [
+      "homework answers",
+      "homework problems",
+      "math",
+<<<<<<< HEAD
+      "physics",
+      "statics and dynamics"
+    ],
+    "mtime": 1759360391.5756605,
+    "filename": "Scanned_20251001-1610.pdf"
+  },
+  "C:\\Users\\thene\\Desktop\\MLH\\input\\Scanned_20251107-1927.pdf": {
+    "keys": [
+      "diagrams",
+      "homework answers",
+      "homework problems",
+      "math",
+      "physics",
+      "statics and dynamics"
+    ],
+    "mtime": 1762572882.950968,
+    "filename": "Scanned_20251107-1927.pdf"
+  },
+  "C:\\Users\\thene\\Desktop\\MLH\\input\\WKST 7.pdf": {
     "keys": [
       "homework answers",
       "programming"
     ],
-    "mtime": 1761266175.1986187,
-    "filename": "p1 copy.txt"
+    "mtime": 1761876635.8104458,
+    "filename": "WKST 7.pdf"
+  },
+  "C:\\Users\\thene\\Desktop\\MLH\\input\\worksheet7.pdf": {
+    "keys": [
+      "homework answers",
+      "math",
+      "programming"
+    ],
+    "mtime": 1761876516.3557217,
+    "filename": "worksheet7.pdf"
+=======
+      "programming"
+    ],
+    "mtime": 1705873432.7389183,
+    "filename": "Math 32 Hw 1.pdf"
   },
   "/Users/makho/Desktop/Major-league-Hackathon-Project/input/WRI 105_ Showstopper Grammar Plan copy.pdf": {
     "keys": [
@@ -50,7 +111,8 @@
       "homework problems",
       "programming"
     ],
-    "mtime": 1760993722.558418,
-    "filename": "Project01_Instructions copy.pdf"
+    "mtime": 1762630451.4967134,
+    "filename": "sample_document.txt"
+>>>>>>> 58ee6046b8e1a70d7262b03952502e619f0de73e
   }
 }
