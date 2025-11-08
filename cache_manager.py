@@ -9,7 +9,7 @@ KEY_TO_FILE_PATH = CACHE_DIR / "key-to-file.json"
 CONFIG_FILE_PATH = Path("./config.json")
 DEFAULT_CONFIG = {
     "target_folder": "./input",
-    "allowed_keys": ["example"]
+    "allowed_keys": ["example1", "example2", "example2"]
 }
 
 # makes sure all the paths and cache files are set up and ready for use
