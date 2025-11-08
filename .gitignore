@@ -1,0 +1,17 @@
+__pycache__/
+
+
+# <----- specific directories ------>
+instance/
+migrations/
+.venv/
+venv/
+env/
+.env
+
+# <----- specific files ------>
+*.pyc
+*.sqlite3
+*.zip
+*.png
+*.pdf
