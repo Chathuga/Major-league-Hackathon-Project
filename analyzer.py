@@ -7,18 +7,18 @@ from PIL import Image
 import fitz  # PyMuPDF
 import io
 
-#Get secret API KEY
+# Get secret API KEY
 load_dotenv()
 API_KEY = os.environ.get('APIKEY')
 if not API_KEY:
     raise ValueError(".env file not found, please create one.")
 
 # Configure Gemini
-genai.configure(api_key = API_KEY)
+genai.configure(api_key=API_KEY)
 model = genai.GenerativeModel('gemini-2.5-pro')
 
 
-#Calls Gemini to categorize content based Strictly on the allowed_keys fed in config
+# Calls Gemini to categorize content based Strictly on the allowed_keys fed in config
 def analyze_file_with_gemini(file_path, content, allowed_keys):
 
     # Determine file type
@@ -51,22 +51,31 @@ def analyze_file_with_gemini(file_path, content, allowed_keys):
     elif file_ext == '.pdf':
         try:
             pdf_document = fitz.open(stream=content, filetype="pdf")
-            text_content = ""
-            for page in pdf_document:
-                text_content += page.get_text()
+
+            # Convert PDF pages to images
+            pdf_images = []
+            for page_num in range(len(pdf_document)):
+                page = pdf_document[page_num]
+                # Render page to image at 2x resolution for better quality
+                pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))
+                # Convert to PIL Image
+                img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
+                pdf_images.append(img)
+
             pdf_document.close()
 
             prompt = f"""
-            You are a rigid file classifier. match the following text to THESE allowed keys strictly: {json.dumps(allowed_keys)}.
+            You are a rigid file classifier. Analyze this PDF document (converted to images) and match it to THESE allowed keys strictly: {json.dumps(allowed_keys)}.
             Rules:
             1. Output ONLY a JSON list of strings, e.g., ["finance", "work-project"].
             2. If no keys match, output [].
-
-            Text content (truncated):
-            {text_content[:4000]}
+            3. Analyze all pages - look for: text, images, diagrams, charts, tables, receipts, forms, etc.
+            4. Consider both visual elements and text content.
             """
 
-            response = model.generate_content(prompt)
+            # Send all page images to Gemini vision API
+            content_parts = [prompt] + pdf_images
+            response = model.generate_content(content_parts)
             cleaned_text = response.text.replace('```json', '').replace('```', '').strip()
             return json.loads(cleaned_text)
 
@@ -114,14 +123,14 @@ def run_analysis_pipeline(target_folder, allowed_keys):
             # Check Cache: File must exist in map AND have same modification time
             cached_data = file_map.get(file_path)
             if cached_data and cached_data.get('mtime') == mtime:
-                continue # Skip if unchanged
+                continue  # Skip if unchanged
 
             # It's new or changed, analyze it
             try:
                 # (Simple text extraction for this test example)
                 with open(file_path, 'rb') as f:
                     content = f.read()
-                
+
                 keys = analyze_file_with_gemini(file_path, content, allowed_keys)
                 # Sort keys immediately for consistency
                 keys.sort()
@@ -130,7 +139,7 @@ def run_analysis_pipeline(target_folder, allowed_keys):
                 file_map[file_path] = {
                     "keys": keys,
                     "mtime": mtime,
-                    "filename": file # Store simple name for easier UI rendering later
+                    "filename": file  # Store simple name for easier UI rendering later
                 }
                 files_processed += 1
                 print(f"Analyzed: {file} -> {keys}")
@@ -156,7 +165,7 @@ def run_reduce_pipeline():
 
     for file_path, data in file_map.items():
         current_keys = data['keys']
-        
+
         # For every key this file has, add the file path to that key's list
         for key in current_keys:
             if key not in key_reduce:
