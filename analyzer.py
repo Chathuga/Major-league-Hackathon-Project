@@ -7,8 +7,9 @@ import fitz  # PyMuPDF
 import io
 
 # Configure Gemini
-genai.configure(api_key="AIzaSyALzWY1ZFcEK2mAcLJ07fOCalnFfCLjkC0")
-model = genai.GenerativeModel('gemini-2.0-flash')
+APIKEY = os.environ('APIKEY')
+genai.configure(APIKEY)
+model = genai.GenerativeModel('gemini-2.5-pro')
 
 def analyze_file_with_gemini(file_path, content, allowed_keys):
     """Calls Gemini to categorize content based STRICTLY on allowed_keys."""

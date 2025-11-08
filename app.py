@@ -35,7 +35,7 @@ def get_ui_data():
     key_reduce = load_key_reduce()  # The grouped data
     file_map = load_file_map()      # The detailed data for each file
 
-    # Final structure: { "finance": [ {name: "doc1.txt", all_keys: [...]}, ... ] }
+    # Final structure:
     ui_data = {}
 
     # Sort keys alphabetically for display

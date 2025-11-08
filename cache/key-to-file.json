@@ -1,42 +1,16 @@
 {
-  "programming": [
-    "/Users/amankalkat/Desktop/mlh-hackathon-test/Major-league-Hackathon-Project/input/Dockerfile-2025",
-    "/Users/amankalkat/Desktop/mlh-hackathon-test/Major-league-Hackathon-Project/input/spring_26_schedule.pdf",
-    "/Users/amankalkat/Desktop/mlh-hackathon-test/Major-league-Hackathon-Project/input/Math 32 Hw 1.pdf"
+  "homework answers": [
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\LUdecomp.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\WKST 7.pdf"
   ],
   "homework problems": [
-    "/Users/amankalkat/Desktop/mlh-hackathon-test/Major-league-Hackathon-Project/input/spring_26_schedule.pdf",
-    "/Users/amankalkat/Desktop/mlh-hackathon-test/Major-league-Hackathon-Project/input/Math 32 Hw 1.pdf"
-  ],
-  "physics": [
-    "/Users/amankalkat/Desktop/mlh-hackathon-test/Major-league-Hackathon-Project/input/spring_26_schedule.pdf"
-  ],
-  "cat": [
-    "/Users/amankalkat/Desktop/mlh-hackathon-test/Major-league-Hackathon-Project/input/lola.jpg",
-    "/Users/amankalkat/Desktop/mlh-hackathon-test/Major-league-Hackathon-Project/input/Screen Shot 2022-09-23 at 9.47.58 PM.png",
-    "/Users/amankalkat/Desktop/mlh-hackathon-test/Major-league-Hackathon-Project/input/Screen Shot 2022-09-23 at 9.45.38 PM.png"
-  ],
-  "pets": [
-    "/Users/amankalkat/Desktop/mlh-hackathon-test/Major-league-Hackathon-Project/input/lola.jpg",
-    "/Users/amankalkat/Desktop/mlh-hackathon-test/Major-league-Hackathon-Project/input/Screen Shot 2022-09-23 at 9.47.58 PM.png",
-    "/Users/amankalkat/Desktop/mlh-hackathon-test/Major-league-Hackathon-Project/input/Screen Shot 2022-09-23 at 9.45.38 PM.png"
-  ],
-  "homework answers": [
-    "/Users/amankalkat/Desktop/mlh-hackathon-test/Major-league-Hackathon-Project/input/Math 32 Hw 1.pdf"
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\LUdecomp.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\WKST 7.pdf"
   ],
   "math": [
-    "/Users/amankalkat/Desktop/mlh-hackathon-test/Major-league-Hackathon-Project/input/Math 32 Hw 1.pdf"
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\LUdecomp.pdf"
   ],
-  "diagrams": [
-    "/Users/amankalkat/Desktop/mlh-hackathon-test/Major-league-Hackathon-Project/input/Fall 25 Class Schedule.png"
-  ],
-  "personal": [
-    "/Users/amankalkat/Desktop/mlh-hackathon-test/Major-league-Hackathon-Project/input/Fall 25 Class Schedule.png"
-  ],
-  "finance": [
-    "/Users/amankalkat/Desktop/mlh-hackathon-test/Major-league-Hackathon-Project/input/sample_document.txt"
-  ],
-  "work-project": [
-    "/Users/amankalkat/Desktop/mlh-hackathon-test/Major-league-Hackathon-Project/input/sample_document.txt"
+  "programming": [
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\LUdecomp.pdf"
   ]
 }
