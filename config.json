@@ -1,6 +1,11 @@
 {
   "target_folder": "./input",
   "allowed_keys": [
-    "example"
+    "example",
+    "pets",
+    "cat",
+    "homework",
+    "other",
+    "schedules"
   ]
 }
