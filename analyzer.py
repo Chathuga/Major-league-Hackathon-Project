@@ -2,30 +2,92 @@ import os
 import google.generativeai as genai
 import json
 from cache_manager import load_file_map, save_file_map, save_key_reduce
+from PIL import Image
+import fitz  # PyMuPDF
+import io
 
 # Configure Gemini
-genai.configure(api_key="AIzaSyALzWY1ZFcEK2mAcLJ07fOCalnFfCLjkC0") 
+genai.configure(api_key="AIzaSyALzWY1ZFcEK2mAcLJ07fOCalnFfCLjkC0")
 model = genai.GenerativeModel('gemini-2.0-flash')
 
 def analyze_file_with_gemini(file_path, content, allowed_keys):
     """Calls Gemini to categorize content based STRICTLY on allowed_keys."""
-    prompt = f"""
-    You are a rigid file classifier. match the following text to THESE allowed keys strictly: {json.dumps(allowed_keys)}.
-    Rules:
-    1. Output ONLY a JSON list of strings, e.g., ["finance", "work-project"].
-    2. If no keys match, output [].
-    
-    Text content (truncated):
-    {content[:4000]}
-    """
-    try:
-        # Simple call for testing. In production, add retries/backoff.
-        response = model.generate_content(prompt)
-        cleaned_text = response.text.replace('```json', '').replace('```', '').strip()
-        return json.loads(cleaned_text)
-    except Exception as e:
-        print(f"Gemini Error on {file_path}: {e}")
-        return []
+
+    # Determine file type
+    file_ext = os.path.splitext(file_path)[1].lower()
+
+    # Image files - use vision API
+    if file_ext in ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp']:
+        try:
+            # Open image using Pillow to validate and potentially convert
+            img = Image.open(io.BytesIO(content))
+
+            prompt = f"""
+            You are a rigid file classifier. Analyze this image and match it to THESE allowed keys strictly: {json.dumps(allowed_keys)}.
+            Rules:
+            1. Output ONLY a JSON list of strings, e.g., ["pets", "dog"].
+            2. If no keys match, output [].
+            3. Look for: objects, animals, text, diagrams, charts, documents, receipts, etc.
+            """
+
+            # Send image directly to Gemini vision
+            response = model.generate_content([prompt, img])
+            cleaned_text = response.text.replace('```json', '').replace('```', '').strip()
+            return json.loads(cleaned_text)
+
+        except Exception as e:
+            print(f"Image processing error on {file_path}: {e}")
+            return []
+
+    # PDF files - extract text
+    elif file_ext == '.pdf':
+        try:
+            pdf_document = fitz.open(stream=content, filetype="pdf")
+            text_content = ""
+            for page in pdf_document:
+                text_content += page.get_text()
+            pdf_document.close()
+
+            prompt = f"""
+            You are a rigid file classifier. match the following text to THESE allowed keys strictly: {json.dumps(allowed_keys)}.
+            Rules:
+            1. Output ONLY a JSON list of strings, e.g., ["finance", "work-project"].
+            2. If no keys match, output [].
+
+            Text content (truncated):
+            {text_content[:4000]}
+            """
+
+            response = model.generate_content(prompt)
+            cleaned_text = response.text.replace('```json', '').replace('```', '').strip()
+            return json.loads(cleaned_text)
+
+        except Exception as e:
+            print(f"PDF processing error on {file_path}: {e}")
+            return []
+
+    # Text files - decode and send as text
+    else:
+        try:
+            text_content = content.decode('utf-8', errors='ignore')
+
+            prompt = f"""
+            You are a rigid file classifier. match the following text to THESE allowed keys strictly: {json.dumps(allowed_keys)}.
+            Rules:
+            1. Output ONLY a JSON list of strings, e.g., ["finance", "work-project"].
+            2. If no keys match, output [].
+
+            Text content (truncated):
+            {text_content[:4000]}
+            """
+
+            response = model.generate_content(prompt)
+            cleaned_text = response.text.replace('```json', '').replace('```', '').strip()
+            return json.loads(cleaned_text)
+
+        except Exception as e:
+            print(f"Text processing error on {file_path}: {e}")
+            return []
 
 def run_analysis_pipeline(target_folder, allowed_keys):
     """
@@ -47,7 +109,7 @@ def run_analysis_pipeline(target_folder, allowed_keys):
             # It's new or changed, analyze it
             try:
                 # (Simple text extraction for this test example)
-                with open(file_path, 'r', errors='ignore') as f:
+                with open(file_path, 'rb') as f:
                     content = f.read()
                 
                 keys = analyze_file_with_gemini(file_path, content, allowed_keys)
