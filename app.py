@@ -1,5 +1,6 @@
 from flask import Flask, render_template, jsonify
 import json
+import time
 from cache_manager import init_cache, load_file_map, load_key_reduce, clear_all_caches, check_for_cache, CONFIG_FILE_PATH
 from analyzer import run_analysis_pipeline, run_reduce_pipeline
 
@@ -7,9 +8,16 @@ app = Flask(__name__)
 
 init_cache()
 
+# Global progress tracker
+progress_data = {
+    "completed": 0,
+    "total": 0,
+    "running": False
+}
+
 
 #if cache already exists then
-if check_for_cache() == False:
+if check_for_cache() == True:
     clear_all_caches()
 
 
@@ -20,6 +28,13 @@ def index():
 
 @app.route('/run')
 def run_process():
+    # Start timing
+    start_time = time.time()
+
+    # Reset progress
+    progress_data["completed"] = 0
+    progress_data["total"] = 0
+    progress_data["running"] = True
 
     with open(CONFIG_FILE_PATH, 'r') as f:
         CONFIG = json.load(f)
@@ -29,12 +44,26 @@ def run_process():
 
 
     #Run Gemini Analysis and Map
-    count = run_analysis_pipeline(CONFIG['target_folder'], CONFIG['allowed_keys'])
+    count = run_analysis_pipeline(CONFIG['target_folder'], CONFIG['allowed_keys'], progress_data)
 
     #Run Reduce (Grouping)
     run_reduce_pipeline()
 
-    return jsonify({"status": "complete", "newly_analyzed": count})
+    # Calculate elapsed time
+    elapsed_time = time.time() - start_time
+
+    progress_data["running"] = False
+
+    return jsonify({
+        "status": "complete",
+        "newly_analyzed": count,
+        "elapsed_time_seconds": round(elapsed_time, 2)
+    })
+
+
+@app.route('/progress')
+def get_progress():
+    return jsonify(progress_data)
 
 
 #for display on the website UI

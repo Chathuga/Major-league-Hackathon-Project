@@ -13,20 +13,40 @@
     <div id="results"></div>
 
     <script>
+        let progressInterval = null;
+
+        function updateProgress() {
+            fetch('/progress')
+                .then(res => res.json())
+                .then(data => {
+                    const status = document.getElementById('status');
+                    if (data.running && data.total > 0) {
+                        status.textContent = `Processing files: ${data.completed}/${data.total}`;
+                    }
+                });
+        }
+
         function runPipeline() {
             const btn = document.getElementById('runBtn');
             const status = document.getElementById('status');
             btn.disabled = true;
             status.textContent = "Running Pipeline... (Scanning -> Gemini -> Map -> Reduce)";
 
+            // Start polling for progress every 500ms
+            progressInterval = setInterval(updateProgress, 500);
+
             fetch('/run')
                 .then(res => res.json())
                 .then(data => {
-                    status.textContent = `Complete! Newly analyzed: ${data.newly_analyzed} files.`;
+                    // Stop polling
+                    clearInterval(progressInterval);
+                    status.textContent = `Complete! Newly analyzed: ${data.newly_analyzed} files in ${data.elapsed_time_seconds}s.`;
                     loadView();
                     btn.disabled = false;
                 })
                 .catch(err => {
+                    // Stop polling on error
+                    clearInterval(progressInterval);
                     status.textContent = "Error: " + err;
                     btn.disabled = false;
                 });

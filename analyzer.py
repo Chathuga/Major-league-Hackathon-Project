@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from PIL import Image
 import fitz  # PyMuPDF
 import io
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # Get secret API KEY
 load_dotenv()
@@ -15,7 +16,7 @@ if not API_KEY:
 
 # Configure Gemini
 genai.configure(api_key=API_KEY)
-model = genai.GenerativeModel('gemini-2.5-pro')
+model = genai.GenerativeModel('gemini-2.5-flash')
 
 
 # Calls Gemini to categorize content based Strictly on the allowed_keys fed in config
@@ -108,13 +109,24 @@ def analyze_file_with_gemini(file_path, content, allowed_keys):
 
 
 
-def run_analysis_pipeline(target_folder, allowed_keys):
+def process_single_file(file_path, file, mtime, allowed_keys):
+    """Helper function to process a single file (runs in thread)"""
+    with open(file_path, 'rb') as f:
+        content = f.read()
+
+    keys = analyze_file_with_gemini(file_path, content, allowed_keys)
+    keys.sort()
+    return keys
+
+
+def run_analysis_pipeline(target_folder, allowed_keys, progress_data=None, max_workers=3):
     """
     Phase 1: The 'MAP' Phase (Scanning & tagging individual files)
     """
     file_map = load_file_map()
-    files_processed = 0
+    files_to_process = []
 
+    # First, collect all files that need processing
     for root, _, files in os.walk(target_folder):
         for file in files:
             file_path = os.path.abspath(os.path.join(root, file))
@@ -125,15 +137,26 @@ def run_analysis_pipeline(target_folder, allowed_keys):
             if cached_data and cached_data.get('mtime') == mtime:
                 continue  # Skip if unchanged
 
-            # It's new or changed, analyze it
-            try:
-                # (Simple text extraction for this test example)
-                with open(file_path, 'rb') as f:
-                    content = f.read()
+            files_to_process.append((file_path, file, mtime))
 
-                keys = analyze_file_with_gemini(file_path, content, allowed_keys)
-                # Sort keys immediately for consistency
-                keys.sort()
+    # Update total count in progress tracker
+    if progress_data is not None:
+        progress_data["total"] = len(files_to_process)
+        progress_data["completed"] = 0
+
+    # Process files in parallel using ThreadPoolExecutor
+    files_processed = 0
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        future_to_file = {}
+
+        for file_path, file, mtime in files_to_process:
+            future = executor.submit(process_single_file, file_path, file, mtime, allowed_keys)
+            future_to_file[future] = (file_path, file, mtime)
+
+        for future in as_completed(future_to_file):
+            file_path, file, mtime = future_to_file[future]
+            try:
+                keys = future.result()
 
                 # Update the 'MAP' cache
                 file_map[file_path] = {
@@ -142,10 +165,15 @@ def run_analysis_pipeline(target_folder, allowed_keys):
                     "filename": file  # Store simple name for easier UI rendering later
                 }
                 files_processed += 1
+
+                # Update progress tracker
+                if progress_data is not None:
+                    progress_data["completed"] = files_processed
+
                 print(f"Analyzed: {file} -> {keys}")
 
             except Exception as e:
-                print(f"Failed to read {file_path}: {e}")
+                print(f"Failed to process {file_path}: {e}")
 
     # Save the updated MAP (file-to-key.json)
     save_file_map(file_map)
