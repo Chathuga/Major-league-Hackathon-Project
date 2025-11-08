@@ -1,0 +1,66 @@
+function runPipeline() {
+    const btn = document.getElementById('runBtn');
+    const status = document.getElementById('status');
+    btn.disabled = true;
+    status.textContent = "Running Pipeline... (Scanning -> Gemini -> Map -> Reduce)";
+
+
+    fetch('/run')
+        .then(res => res.json())
+        .then(data => {
+            status.textContent = `Complete! Newly analyzed: ${data.newly_analyzed} files.`;
+            loadView();
+            btn.disabled = false;
+        })
+        .catch(err => {
+            status.textContent = "Error: " + err;
+            btn.disabled = false;
+        });
+}
+
+
+function loadView() {
+    fetch('/data')
+        .then(res => res.json())
+        .then(data => render(data));
+}
+
+
+function render(data) {
+    const container = document.getElementById('results');
+    container.innerHTML = '';
+
+
+    // data is { "finance": [ {name: "doc1", all_keys: ["finance", "urgent"]}, ... ] }
+    for (const [genreKey, files] of Object.entries(data)) {
+        let html = `
+            <div class="genre-group">
+                <div class="genre-header">${genreKey}</div>
+                <div class="file-list">
+        `;
+
+
+        files.forEach(file => {
+            // Render all tags, highlighting the one that matches the current header
+            const tagsHtml = file.all_keys.map(key => 
+                `<span class="key-pill ${key === genreKey ? 'active' : ''}">${key}</span>`
+            ).join('');
+
+
+            html += `
+                <div class="file-item">
+                    <div class="file-name">${file.name}</div>
+                    <div class="file-keys">${tagsHtml}</div>
+                </div>
+            `;
+        });
+
+
+        html += `</div></div>`;
+        container.innerHTML += html;
+    }
+}
+
+
+// Load existing data on page load
+loadView();

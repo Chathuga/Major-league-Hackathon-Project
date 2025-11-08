@@ -1,43 +1,22 @@
 {
   "homework problems": [
-    "/Users/amankalkat/Desktop/other_mlh/input/Dockerfile-2025",
-    "/Users/amankalkat/Desktop/other_mlh/input/Math 32 Hw 1.pdf"
-  ],
-  "programming": [
-    "/Users/amankalkat/Desktop/other_mlh/input/Dockerfile-2025",
-    "/Users/amankalkat/Desktop/other_mlh/input/spring_26_schedule.pdf",
-    "/Users/amankalkat/Desktop/other_mlh/input/Math 32 Hw 1.pdf"
-  ],
-  "work-project": [
-    "/Users/amankalkat/Desktop/other_mlh/input/Dockerfile-2025",
-    "/Users/amankalkat/Desktop/other_mlh/input/sample_document.txt"
-  ],
-  "diagrams": [
-    "/Users/amankalkat/Desktop/other_mlh/input/spring_26_schedule.pdf"
-  ],
-  "personal": [
-    "/Users/amankalkat/Desktop/other_mlh/input/spring_26_schedule.pdf",
-    "/Users/amankalkat/Desktop/other_mlh/input/lola.jpg",
-    "/Users/amankalkat/Desktop/other_mlh/input/Screen Shot 2022-09-23 at 9.47.58 PM.png"
-  ],
-  "physics": [
-    "/Users/amankalkat/Desktop/other_mlh/input/spring_26_schedule.pdf"
-  ],
-  "cat": [
-    "/Users/amankalkat/Desktop/other_mlh/input/lola.jpg",
-    "/Users/amankalkat/Desktop/other_mlh/input/Screen Shot 2022-09-23 at 9.47.58 PM.png"
-  ],
-  "pets": [
-    "/Users/amankalkat/Desktop/other_mlh/input/lola.jpg",
-    "/Users/amankalkat/Desktop/other_mlh/input/Screen Shot 2022-09-23 at 9.47.58 PM.png"
-  ],
-  "homework answers": [
-    "/Users/amankalkat/Desktop/other_mlh/input/Math 32 Hw 1.pdf"
+    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/math024-week9-3.2 copy.pdf",
+    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/Lab06_Instructions copy.pdf",
+    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/math024-week10-3.2part1 copy.pdf",
+    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/Project01_Instructions copy.pdf"
   ],
   "math": [
-    "/Users/amankalkat/Desktop/other_mlh/input/Math 32 Hw 1.pdf"
+    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/math024-week9-3.2 copy.pdf",
+    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/math024-week10-3.2part1 copy.pdf"
   ],
-  "finance": [
-    "/Users/amankalkat/Desktop/other_mlh/input/sample_document.txt"
+  "homework answers": [
+    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/WRI 105_ The Showstopper copy.pdf",
+    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/p1 copy.txt",
+    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/WRI 105_ Showstopper Grammar Plan copy.pdf"
+  ],
+  "programming": [
+    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/Lab06_Instructions copy.pdf",
+    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/p1 copy.txt",
+    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/Project01_Instructions copy.pdf"
   ]
 }
