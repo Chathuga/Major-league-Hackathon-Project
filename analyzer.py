@@ -2,13 +2,19 @@ import os
 import google.generativeai as genai
 import json
 from cache_manager import load_file_map, save_file_map, save_key_reduce
+from dotenv import load_dotenv
 from PIL import Image
 import fitz  # PyMuPDF
 import io
 
+#get secret API KEY
+load_dotenv()
+API_KEY = os.environ.get( 'APIKEY')
+if not API_KEY:
+    raise ValueError(".env file not found, please create one.")
+
 # Configure Gemini
-APIKEY = os.environ('APIKEY')
-genai.configure(APIKEY)
+genai.configure(api_key = API_KEY)
 model = genai.GenerativeModel('gemini-2.5-pro')
 
 def analyze_file_with_gemini(file_path, content, allowed_keys):
