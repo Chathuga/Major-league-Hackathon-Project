@@ -1,0 +1,17 @@
+{
+  "target_folder": "./input",
+  "allowed_keys": [
+    "finance",
+    "personal",
+    "work-project",
+    "receipts",
+    "legal",
+    "urgent",
+    "homework answers",
+    "homework problems",
+    "physics",
+    "statics and dynamics",
+    "diagrams",
+    "math"
+  ]
+}

@@ -8,10 +8,10 @@ migrations/
 venv/
 env/
 .env
+input/
 
 # <----- specific files ------>
 *.pyc
-*.sqlite3
 *.zip
 *.png
 *.pdf

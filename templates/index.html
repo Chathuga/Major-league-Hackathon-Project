@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Map-Reduce Organizer</title>
+    <style>
+        :root { --bg: #1a1a1a; --text: #e0e0e0; --accent: #007bff; --panel: #2d2d2d; }
+        body { font-family: 'Segoe UI', monospace; background: var(--bg); color: var(--text); padding: 20px; }
+        button { padding: 10px 20px; background: var(--accent); color: white; border: none; cursor: pointer; font-size: 1rem; border-radius: 4px; }
+        button:disabled { opacity: 0.5; cursor: not-allowed; }
+        #status { margin-top: 10px; color: #888; }
+
+        /* The requested UI layout */
+        .genre-group { margin-bottom: 25px; background: var(--panel); border-radius: 8px; overflow: hidden; }
+        .genre-header { background: #383838; padding: 10px 15px; font-size: 1.2rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; border-left: 5px solid var(--accent); }
+        .file-list { padding: 10px 15px; }
+        .file-item { display: flex; align-items: center; padding: 6px 0; border-bottom: 1px solid #444; }
+        .file-name { font-weight: 600; color: #fff; margin-right: 15px; min-width: 200px; }
+        .key-pill { display: inline-block; background: #444; padding: 2px 8px; border-radius: 12px; font-size: 0.85rem; margin-right: 5px; color: #bbb; }
+        /* Highlight the key that matches the current group header */
+        .key-pill.active { background: var(--accent); color: white; }
+    </style>
+</head>
+<body>
+    <h1>Local Map-Reduce Organizer</h1>
+    <button id="runBtn" onclick="runPipeline()">Run Analysis & Reduce</button>
+    <div id="status">Ready.</div>
+    <div id="results"></div>
+
+    <script>
+        function runPipeline() {
+            const btn = document.getElementById('runBtn');
+            const status = document.getElementById('status');
+            btn.disabled = true;
+            status.textContent = "Running Pipeline... (Scanning -> Gemini -> Map -> Reduce)";
+
+            fetch('/run')
+                .then(res => res.json())
+                .then(data => {
+                    status.textContent = `Complete! Newly analyzed: ${data.newly_analyzed} files.`;
+                    loadView();
+                    btn.disabled = false;
+                })
+                .catch(err => {
+                    status.textContent = "Error: " + err;
+                    btn.disabled = false;
+                });
+        }
+
+        function loadView() {
+            fetch('/data')
+                .then(res => res.json())
+                .then(data => render(data));
+        }
+
+        function render(data) {
+            const container = document.getElementById('results');
+            container.innerHTML = '';
+
+            // data is { "finance": [ {name: "doc1", all_keys: ["finance", "urgent"]}, ... ] }
+            for (const [genreKey, files] of Object.entries(data)) {
+                let html = `
+                    <div class="genre-group">
+                        <div class="genre-header">${genreKey}</div>
+                        <div class="file-list">
+                `;
+
+                files.forEach(file => {
+                    // Render all tags, highlighting the one that matches the current header
+                    const tagsHtml = file.all_keys.map(key => 
+                        `<span class="key-pill ${key === genreKey ? 'active' : ''}">${key}</span>`
+                    ).join('');
+
+                    html += `
+                        <div class="file-item">
+                            <div class="file-name">${file.name}</div>
+                            <div class="file-keys">${tagsHtml}</div>
+                        </div>
+                    `;
+                });
+
+                html += `</div></div>`;
+                container.innerHTML += html;
+            }
+        }
+
+        // Load existing data on page load
+        loadView();
+    </script>
+</body>
+</html>
