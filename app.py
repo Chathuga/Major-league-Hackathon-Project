@@ -5,6 +5,9 @@ from analyzer import run_analysis_pipeline, run_reduce_pipeline
 
 app = Flask(__name__)
 
+init_cache()
+
+
 #if cache already exists then
 if check_for_cache() == False:
     clear_all_caches()
@@ -66,5 +69,4 @@ def get_ui_data():
 
 
 if __name__ == '__main__':
-    init_cache()
     app.run(debug=True)
