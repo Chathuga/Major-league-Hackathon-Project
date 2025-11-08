@@ -1,20 +1,41 @@
 {
-  "homework problems": [
-    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/math024-week9-3.2 copy.pdf",
-    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/WRI 105_ The Showstopper copy.pdf",
-    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/Lab06_Instructions copy.pdf",
-    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/math024-week10-3.2part1 copy.pdf"
+  "diagrams": [
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\HMWK 06.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\Scanned_20251107-1927.pdf"
   ],
   "math": [
-    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/math024-week9-3.2 copy.pdf",
-    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/math024-week10-3.2part1 copy.pdf"
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\HMWK 06.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\LUdecomp.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\Scanned_20251001-1610.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\Scanned_20251107-1927.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\WKST 7.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\worksheet7.pdf"
+  ],
+  "physics": [
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\HMWK 06.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\Scanned_20251001-1610.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\Scanned_20251107-1927.pdf"
+  ],
+  "statics and dynamics": [
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\HMWK 06.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\Scanned_20251001-1610.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\Scanned_20251107-1927.pdf"
   ],
   "homework answers": [
-    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/WRI 105_ The Showstopper copy.pdf",
-    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/p1 copy.txt"
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\LUdecomp.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\Scanned_20251001-1610.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\Scanned_20251107-1927.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\WKST 7.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\worksheet7.pdf"
   ],
   "programming": [
-    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/Lab06_Instructions copy.pdf",
-    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/p1 copy.txt"
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\LUdecomp.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\WKST 7.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\worksheet7.pdf"
+  ],
+  "homework problems": [
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\Scanned_20251001-1610.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\Scanned_20251107-1927.pdf",
+    "C:\\Users\\thene\\Desktop\\MLH\\input\\WKST 7.pdf"
   ]
 }

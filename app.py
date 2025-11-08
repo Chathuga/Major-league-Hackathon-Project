@@ -1,23 +1,24 @@
 from flask import Flask, render_template, jsonify
 import json
 from cache_manager import init_cache, load_file_map, load_key_reduce, clear_all_caches, check_for_cache, CONFIG_FILE_PATH
-from analyzer import run_analysis_pipeline, run_reduce_pipeline
+from analyzer import analysis, reduce
 
+#Start flask app
 app = Flask(__name__)
 
+#Initialize caches
 init_cache()
 
-
-#if cache already exists then
-if check_for_cache() == False:
+#If cache already exists then
+if check_for_cache() == True:
     clear_all_caches()
 
-
+#Load the main dashboard
 @app.route('/')
 def index():
     return render_template('index.html')
 
-
+#start process
 @app.route('/run')
 def run_process():
 
@@ -29,10 +30,10 @@ def run_process():
 
 
     #Run Gemini Analysis and Map
-    count = run_analysis_pipeline(CONFIG['target_folder'], CONFIG['allowed_keys'])
+    count = analysis(CONFIG['target_folder'], CONFIG['allowed_keys'])
 
     #Run Reduce (Grouping)
-    run_reduce_pipeline()
+    reduce()
 
     return jsonify({"status": "complete", "newly_analyzed": count})
 

@@ -17,7 +17,7 @@
             const btn = document.getElementById('runBtn');
             const status = document.getElementById('status');
             btn.disabled = true;
-            status.textContent = "Running Pipeline... (Scanning -> Gemini -> Map -> Reduce)";
+            status.textContent = "Running ... (Scanning -> Analyzing -> Maping -> Reducing)";
 
             fetch('/run')
                 .then(res => res.json())
@@ -32,11 +32,13 @@
                 });
         }
 
+
         function loadView() {
             fetch('/data')
                 .then(res => res.json())
                 .then(data => render(data));
         }
+
 
         function render(data) {
             const container = document.getElementById('results');
