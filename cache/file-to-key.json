@@ -1,52 +1,67 @@
 {
-  "/Users/makho/Desktop/Major-league-Hackathon-Project/input/math024-week9-3.2 copy.pdf": {
+  "/Users/amankalkat/Desktop/other_mlh/input/Dockerfile-2025": {
     "keys": [
       "homework problems",
-      "math"
+      "programming",
+      "work-project"
     ],
-    "mtime": 1761070380.0955412,
-    "filename": "math024-week9-3.2 copy.pdf"
+    "mtime": 1759444829.5485122,
+    "filename": "Dockerfile-2025"
   },
-  "/Users/makho/Desktop/Major-league-Hackathon-Project/input/WRI 105_ The Showstopper copy.pdf": {
+  "/Users/amankalkat/Desktop/other_mlh/input/spring_26_schedule.pdf": {
     "keys": [
-      "homework answers",
-      "homework problems"
-    ],
-    "mtime": 1761083395.1120431,
-    "filename": "WRI 105_ The Showstopper copy.pdf"
-  },
-  "/Users/makho/Desktop/Major-league-Hackathon-Project/input/Lab06_Instructions copy.pdf": {
-    "keys": [
-      "homework problems",
+      "diagrams",
+      "personal",
+      "physics",
       "programming"
     ],
-    "mtime": 1762387255.3090632,
-    "filename": "Lab06_Instructions copy.pdf"
+    "mtime": 1762013865.8643284,
+    "filename": "spring_26_schedule.pdf"
   },
-  "/Users/makho/Desktop/Major-league-Hackathon-Project/input/math024-week10-3.2part1 copy.pdf": {
+  "/Users/amankalkat/Desktop/other_mlh/input/lola.jpg": {
     "keys": [
-      "homework problems",
-      "math"
+      "cat",
+      "personal",
+      "pets"
     ],
-    "mtime": 1761175357.610978,
-    "filename": "math024-week10-3.2part1 copy.pdf"
+    "mtime": 1663346190.609303,
+    "filename": "lola.jpg"
   },
-  "/Users/makho/Desktop/Major-league-Hackathon-Project/input/p1 copy.txt": {
+  "/Users/amankalkat/Desktop/other_mlh/input/Math 32 Hw 1.pdf": {
     "keys": [
       "homework answers",
+      "homework problems",
+      "math",
       "programming"
     ],
-    "mtime": 1761266175.1986187,
-    "filename": "p1 copy.txt"
+    "mtime": 1705873432.7389183,
+    "filename": "Math 32 Hw 1.pdf"
   },
-  "/Users/makho/Desktop/Major-league-Hackathon-Project/input/WRI 105_ Showstopper Grammar Plan copy.pdf": {
-    "keys": [],
-    "mtime": 1761078512.4206939,
-    "filename": "WRI 105_ Showstopper Grammar Plan copy.pdf"
+  "/Users/amankalkat/Desktop/other_mlh/input/Screen Shot 2022-09-23 at 9.47.58 PM.png": {
+    "keys": [
+      "cat",
+      "personal",
+      "pets"
+    ],
+    "mtime": 1663994884.4140656,
+    "filename": "Screen Shot 2022-09-23 at 9.47.58 PM.png"
   },
-  "/Users/makho/Desktop/Major-league-Hackathon-Project/input/Project01_Instructions copy.pdf": {
+  "/Users/amankalkat/Desktop/other_mlh/input/Fall 25 Class Schedule.png": {
     "keys": [],
-    "mtime": 1760993722.558418,
-    "filename": "Project01_Instructions copy.pdf"
+    "mtime": 1743478719.284282,
+    "filename": "Fall 25 Class Schedule.png"
+  },
+  "/Users/amankalkat/Desktop/other_mlh/input/Screen Shot 2022-09-23 at 9.45.38 PM.png": {
+    "keys": [],
+    "mtime": 1663994744.2452269,
+    "filename": "Screen Shot 2022-09-23 at 9.45.38 PM.png"
+  },
+  "/Users/amankalkat/Desktop/other_mlh/input/sample_document.txt": {
+    "keys": [
+      "finance",
+      "work-project"
+    ],
+    "mtime": 1762630451.4967134,
+    "filename": "sample_document.txt"
   }
 }
