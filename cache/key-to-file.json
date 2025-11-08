@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "diagrams": [
     "C:\\Users\\thene\\Desktop\\MLH\\input\\HMWK 06.pdf",
     "C:\\Users\\thene\\Desktop\\MLH\\input\\Scanned_20251107-1927.pdf"
@@ -37,5 +38,47 @@
     "C:\\Users\\thene\\Desktop\\MLH\\input\\Scanned_20251001-1610.pdf",
     "C:\\Users\\thene\\Desktop\\MLH\\input\\Scanned_20251107-1927.pdf",
     "C:\\Users\\thene\\Desktop\\MLH\\input\\WKST 7.pdf"
+=======
+  "homework problems": [
+    "/Users/amankalkat/Desktop/other_mlh/input/Dockerfile-2025",
+    "/Users/amankalkat/Desktop/other_mlh/input/Math 32 Hw 1.pdf"
+  ],
+  "programming": [
+    "/Users/amankalkat/Desktop/other_mlh/input/Dockerfile-2025",
+    "/Users/amankalkat/Desktop/other_mlh/input/spring_26_schedule.pdf",
+    "/Users/amankalkat/Desktop/other_mlh/input/Math 32 Hw 1.pdf"
+  ],
+  "work-project": [
+    "/Users/amankalkat/Desktop/other_mlh/input/Dockerfile-2025",
+    "/Users/amankalkat/Desktop/other_mlh/input/sample_document.txt"
+  ],
+  "diagrams": [
+    "/Users/amankalkat/Desktop/other_mlh/input/spring_26_schedule.pdf"
+  ],
+  "personal": [
+    "/Users/amankalkat/Desktop/other_mlh/input/spring_26_schedule.pdf",
+    "/Users/amankalkat/Desktop/other_mlh/input/lola.jpg",
+    "/Users/amankalkat/Desktop/other_mlh/input/Screen Shot 2022-09-23 at 9.47.58 PM.png"
+  ],
+  "physics": [
+    "/Users/amankalkat/Desktop/other_mlh/input/spring_26_schedule.pdf"
+  ],
+  "cat": [
+    "/Users/amankalkat/Desktop/other_mlh/input/lola.jpg",
+    "/Users/amankalkat/Desktop/other_mlh/input/Screen Shot 2022-09-23 at 9.47.58 PM.png"
+  ],
+  "pets": [
+    "/Users/amankalkat/Desktop/other_mlh/input/lola.jpg",
+    "/Users/amankalkat/Desktop/other_mlh/input/Screen Shot 2022-09-23 at 9.47.58 PM.png"
+  ],
+  "homework answers": [
+    "/Users/amankalkat/Desktop/other_mlh/input/Math 32 Hw 1.pdf"
+  ],
+  "math": [
+    "/Users/amankalkat/Desktop/other_mlh/input/Math 32 Hw 1.pdf"
+  ],
+  "finance": [
+    "/Users/amankalkat/Desktop/other_mlh/input/sample_document.txt"
+>>>>>>> 58ee6046b8e1a70d7262b03952502e619f0de73e
   ]
 }

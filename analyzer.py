@@ -15,7 +15,7 @@ if not API_KEY:
 
 # Configure Gemini
 genai.configure(api_key=API_KEY)
-model = genai.GenerativeModel('gemini-2.0-flash')
+model = genai.GenerativeModel('gemini-2.5-flash')
 
 
 # Calls Gemini to categorize content based Strictly on the allowed_keys fed in config

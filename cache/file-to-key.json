@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "C:\\Users\\thene\\Desktop\\MLH\\input\\HMWK 06.pdf": {
     "keys": [
       "diagrams",
@@ -19,10 +20,42 @@
     "filename": "LUdecomp.pdf"
   },
   "C:\\Users\\thene\\Desktop\\MLH\\input\\Scanned_20251001-1610.pdf": {
+=======
+  "/Users/amankalkat/Desktop/other_mlh/input/Dockerfile-2025": {
+    "keys": [
+      "homework problems",
+      "programming",
+      "work-project"
+    ],
+    "mtime": 1759444829.5485122,
+    "filename": "Dockerfile-2025"
+  },
+  "/Users/amankalkat/Desktop/other_mlh/input/spring_26_schedule.pdf": {
+    "keys": [
+      "diagrams",
+      "personal",
+      "physics",
+      "programming"
+    ],
+    "mtime": 1762013865.8643284,
+    "filename": "spring_26_schedule.pdf"
+  },
+  "/Users/amankalkat/Desktop/other_mlh/input/lola.jpg": {
+    "keys": [
+      "cat",
+      "personal",
+      "pets"
+    ],
+    "mtime": 1663346190.609303,
+    "filename": "lola.jpg"
+  },
+  "/Users/amankalkat/Desktop/other_mlh/input/Math 32 Hw 1.pdf": {
+>>>>>>> 58ee6046b8e1a70d7262b03952502e619f0de73e
     "keys": [
       "homework answers",
       "homework problems",
       "math",
+<<<<<<< HEAD
       "physics",
       "statics and dynamics"
     ],
@@ -59,5 +92,38 @@
     ],
     "mtime": 1761876516.3557217,
     "filename": "worksheet7.pdf"
+=======
+      "programming"
+    ],
+    "mtime": 1705873432.7389183,
+    "filename": "Math 32 Hw 1.pdf"
+  },
+  "/Users/amankalkat/Desktop/other_mlh/input/Screen Shot 2022-09-23 at 9.47.58 PM.png": {
+    "keys": [
+      "cat",
+      "personal",
+      "pets"
+    ],
+    "mtime": 1663994884.4140656,
+    "filename": "Screen Shot 2022-09-23 at 9.47.58 PM.png"
+  },
+  "/Users/amankalkat/Desktop/other_mlh/input/Fall 25 Class Schedule.png": {
+    "keys": [],
+    "mtime": 1743478719.284282,
+    "filename": "Fall 25 Class Schedule.png"
+  },
+  "/Users/amankalkat/Desktop/other_mlh/input/Screen Shot 2022-09-23 at 9.45.38 PM.png": {
+    "keys": [],
+    "mtime": 1663994744.2452269,
+    "filename": "Screen Shot 2022-09-23 at 9.45.38 PM.png"
+  },
+  "/Users/amankalkat/Desktop/other_mlh/input/sample_document.txt": {
+    "keys": [
+      "finance",
+      "work-project"
+    ],
+    "mtime": 1762630451.4967134,
+    "filename": "sample_document.txt"
+>>>>>>> 58ee6046b8e1a70d7262b03952502e619f0de73e
   }
 }
