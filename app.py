@@ -1,14 +1,13 @@
 from flask import Flask, render_template, jsonify
 import json
-from cache_manager import init_cache, load_file_map, load_key_reduce, clear_all_caches
+from cache_manager import init_cache, load_file_map, load_key_reduce, clear_all_caches, check_for_cache, CONFIG_FILE_PATH
 from analyzer import run_analysis_pipeline, run_reduce_pipeline
 
 app = Flask(__name__)
-init_cache()
 
-# Load config once on startup
-with open('config.json', 'r') as f:
-    CONFIG = json.load(f)
+#if cache already exists then
+if check_for_cache() == False:
+    clear_all_caches()
 
 
 @app.route('/')
@@ -18,20 +17,26 @@ def index():
 
 @app.route('/run')
 def run_process():
+
+    with open(CONFIG_FILE_PATH, 'r') as f:
+        CONFIG = json.load(f)
+
+    #reset cached files
     clear_all_caches()
-    # 1. Run Map (Gemini Analysis)
+
+
+    #Run Gemini Analysis and Map
     count = run_analysis_pipeline(CONFIG['target_folder'], CONFIG['allowed_keys'])
-    # 2. Run Reduce (Grouping)
+
+    #Run Reduce (Grouping)
     run_reduce_pipeline()
+
     return jsonify({"status": "complete", "newly_analyzed": count})
 
 
+#for display on the website UI
 @app.route('/data')
 def get_ui_data():
-    """
-    Constructs the exact nested data structure requested for the UI.
-    It needs BOTH JSON cache files to do this efficiently.
-    """
     key_reduce = load_key_reduce()  # The grouped data
     file_map = load_file_map()      # The detailed data for each file
 
@@ -50,6 +55,7 @@ def get_ui_data():
             details = file_map.get(file_path)
             if details:
                 ui_data[genre_key].append({
+
                     "name": details['filename'],
                     # Requested format: needs ALL keys present for this file
                     "all_keys": details['keys'] 
@@ -57,5 +63,8 @@ def get_ui_data():
 
     return jsonify(ui_data)
 
+
+
 if __name__ == '__main__':
+    init_cache()
     app.run(debug=True)

@@ -10,6 +10,7 @@ env/
 .env
 input/
 cache/
+config.json
 
 # <----- specific files ------>
 *.pyc

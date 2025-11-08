@@ -7,9 +7,9 @@ from PIL import Image
 import fitz  # PyMuPDF
 import io
 
-#get secret API KEY
+#Get secret API KEY
 load_dotenv()
-API_KEY = os.environ.get( 'APIKEY')
+API_KEY = os.environ.get('APIKEY')
 if not API_KEY:
     raise ValueError(".env file not found, please create one.")
 
@@ -17,8 +17,9 @@ if not API_KEY:
 genai.configure(api_key = API_KEY)
 model = genai.GenerativeModel('gemini-2.5-pro')
 
+
+#Calls Gemini to categorize content based Strictly on the allowed_keys fed in config
 def analyze_file_with_gemini(file_path, content, allowed_keys):
-    """Calls Gemini to categorize content based STRICTLY on allowed_keys."""
 
     # Determine file type
     file_ext = os.path.splitext(file_path)[1].lower()
@@ -95,6 +96,8 @@ def analyze_file_with_gemini(file_path, content, allowed_keys):
         except Exception as e:
             print(f"Text processing error on {file_path}: {e}")
             return []
+
+
 
 def run_analysis_pipeline(target_folder, allowed_keys):
     """
