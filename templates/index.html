@@ -4,24 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JSON Map-Reduce Organizer</title>
-    <style>
-        :root { --bg: #1a1a1a; --text: #e0e0e0; --accent: #007bff; --panel: #2d2d2d; }
-        body { font-family: 'Segoe UI', monospace; background: var(--bg); color: var(--text); padding: 20px; }
-        button { padding: 10px 20px; background: var(--accent); color: white; border: none; cursor: pointer; font-size: 1rem; border-radius: 4px; }
-        button:disabled { opacity: 0.5; cursor: not-allowed; }
-        #status { margin-top: 10px; color: #888; }
-
-        /* The requested UI layout */
-        #results { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 20px; }
-        .genre-group { background: var(--panel); border-radius: 8px; overflow: hidden; }
-        .genre-header { background: #383838; padding: 10px 15px; font-size: 1.2rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; border-left: 5px solid var(--accent); }
-        .file-list { padding: 10px 15px; }
-        .file-item { display: flex; align-items: center; padding: 6px 0; border-bottom: 1px solid #444; }
-        .file-name { font-weight: 600; color: #fff; margin-right: 15px; min-width: 200px; }
-        .key-pill { display: inline-block; background: #444; padding: 2px 8px; border-radius: 12px; font-size: 0.85rem; margin-right: 5px; color: #bbb; }
-        /* Highlight the key that matches the current group header */
-        .key-pill.active { background: var(--accent); color: white; }
-    </style>
+    <link rel="stylesheet" href="static/css/styles.css">
 </head>
 <body>
     <h1>Local Map-Reduce Organizer</h1>
