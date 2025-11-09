@@ -1,20 +1,13 @@
 {
-  "homework problems": [
-    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/math024-week9-3.2 copy.pdf",
-    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/Lab06_Instructions copy.pdf",
-    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/math024-week10-3.2part1 copy.pdf",
-    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/Project01_Instructions copy.pdf"
-  ],
-  "math": [
+  "MATH": [
     "/Users/makho/Desktop/Major-league-Hackathon-Project/input/math024-week9-3.2 copy.pdf",
     "/Users/makho/Desktop/Major-league-Hackathon-Project/input/math024-week10-3.2part1 copy.pdf"
   ],
-  "homework answers": [
+  "WRITING": [
     "/Users/makho/Desktop/Major-league-Hackathon-Project/input/WRI 105_ The Showstopper copy.pdf",
-    "/Users/makho/Desktop/Major-league-Hackathon-Project/input/p1 copy.txt",
     "/Users/makho/Desktop/Major-league-Hackathon-Project/input/WRI 105_ Showstopper Grammar Plan copy.pdf"
   ],
-  "programming": [
+  "CSE": [
     "/Users/makho/Desktop/Major-league-Hackathon-Project/input/Lab06_Instructions copy.pdf",
     "/Users/makho/Desktop/Major-league-Hackathon-Project/input/p1 copy.txt",
     "/Users/makho/Desktop/Major-league-Hackathon-Project/input/Project01_Instructions copy.pdf"
