@@ -62,7 +62,7 @@ def clear_all_caches():
     write_json(KEY_TO_FILE_PATH, {})
 
 
-# --- Helper wrappers for specific files ---
+#Helper wrappers for specific files
 def load_file_map(): 
     return read_json(FILE_TO_KEY_PATH)
 

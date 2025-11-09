@@ -38,30 +38,36 @@ def run_process():
     return jsonify({"status": "complete", "newly_analyzed": count})
 
 
-#for display on the website UI
+#For display on the website UI
 @app.route('/data')
 def get_ui_data():
+
     key_reduce = load_key_reduce()  # The grouped data
     file_map = load_file_map()      # The detailed data for each file
 
-    # Final structure:
+    #Final structure:
     ui_data = {}
 
-    # Sort keys alphabetically for display
+    #Sort keys alphabetically for display
     sorted_genre_keys = sorted(key_reduce.keys())
 
+    #Iterate through the list of keys
     for genre_key in sorted_genre_keys:
+        #gets the list of file paths for the current key
         file_list_paths = key_reduce[genre_key]
+        #creates an empty list of keys for storing the path
         ui_data[genre_key] = []
 
+        #Iterates through all the files within the key list
         for file_path in file_list_paths:
+
             # Lookup details from the file map
             details = file_map.get(file_path)
+
+            #inserts the file and its list to be shown on screen
             if details:
                 ui_data[genre_key].append({
-
                     "name": details['filename'],
-                    # Requested format: needs ALL keys present for this file
                     "all_keys": details['keys'] 
                 })
 
