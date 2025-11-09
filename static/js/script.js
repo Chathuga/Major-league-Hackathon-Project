@@ -12,7 +12,7 @@ function runPipeline() {
 
     // Prevent double-submits while the pipeline is running
     btn.disabled = true;
-    status.textContent = "Running Pipeline... (Scanning -> Gemini -> Map -> Reduce)";
+    status.textContent = "Running Pipeline... (Scanning -> analyzing -> Mapping -> Reducing)";
 
     fetch('/run')
         .then(res => res.json())
