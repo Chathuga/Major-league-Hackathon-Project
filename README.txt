@@ -14,6 +14,6 @@ python app.py
 
 3. put the desired files into the input folder that has been created
 
-4. open and modify the "config.json" file inputing the desired tags in the same format of the "example#" tags
+4. open and modify the "config.json" file inputing the desired tags in the same format of the "example#" tags (Try to be discriptive yet consise)
 
 5. REMEMBER to save the config file befor running the accessing the link and starting the run 
