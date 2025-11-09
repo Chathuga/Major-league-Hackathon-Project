@@ -1,15 +1,18 @@
+/* Global design tokens: colors used throughout the UI. Keep names stable when editing. */
 :root {
   --bg: #1a1a1a;
   --text: #e0e0e0;
   --accent: #007bff;
   --panel: #2d2d2d;
 }
+/* Base layout and type settings */
 body {
   font-family: Segoe UI, monospace;
   background: var(--bg);
   color: var(--text);
   padding: 20px;
 }
+/* Primary interactive button style used by the UI (Run button). */
 button {
   padding: 10px 20px;
   background: var(--accent);
@@ -19,25 +22,30 @@ button {
   font-size: 1rem;
   border-radius: 4px;
 }
+/* Disabled state for buttons (keeps layout stable). */
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
+/* Small status line under the button used to show progress messages. */
 #status {
   margin-top: 10px;
   color: #888;
 }
+/* Results grid: two-column responsive layout for groups. */
 #results {
   margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
+/* Container for each tag group (header + file list). */
 .genre-group {
   background: var(--panel);
   border-radius: 8px;
   overflow: hidden;
 }
+/* Group header: shows the tag name and uses an accent bar for emphasis. */
 .genre-header {
   background: #383838;
   padding: 10px 15px;
@@ -47,21 +55,26 @@ button:disabled {
   text-transform: uppercase;
   border-left: 5px solid var(--accent);
 }
+/* Inner list that contains file items for a group. */
 .file-list {
   padding: 10px 15px;
 }
+/* Row representing a single file and its tags. */
 .file-item {
   display: flex;
   align-items: center;
   padding: 6px 0;
   border-bottom: 1px solid #444;
 }
+/* File name cell: left-aligned, fixed min width to keep alignment. */
 .file-name {
   font-weight: 600;
   color: #fff;
   margin-right: 15px;
   min-width: 200px;
 }
+/* Small tag pill used to show all tags for a file. The `.active` variant highlights the
+   pill that corresponds to the current group header. */
 .key-pill {
   display: inline-block;
   background: #444;
