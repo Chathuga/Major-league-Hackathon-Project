@@ -1,7 +1,7 @@
 /*
   runPipeline()
   - Triggered by the "Run Analysis & Reduce" button in the UI.
-  - Calls server endpoint `/run` which runs: scan -> Gemini analysis -> map -> reduce.
+  - Calls server endpoint `/run` which runs: scan -> analysis -> map -> reduce.
   - Disables the button while the pipeline runs, shows status messages, and reloads
     the view when complete.
   Note: `/run` returns JSON { status: 'complete', newly_analyzed: <number> }.
@@ -60,7 +60,7 @@ function render(data) {
     const container = document.getElementById('results');
     container.innerHTML = '';
 
-    // data is { "finance": [ {name: "doc1", all_keys: ["finance", "urgent"]}, ... ] }
+    // data is { "key1": [ {name: "doc1", all_keys: ["key1", "key2"]}, ... ] }
     for (const [genreKey, files] of Object.entries(data)) {
         let html = `
             <div class="genre-group">
